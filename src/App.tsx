@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import VueEasyLightBox from './components/VueEasyLightBox';
-import { Button } from 'ant-design-vue';
+import { Button, Input } from 'ant-design-vue';
 
 export default defineComponent({
   setup() {
@@ -21,6 +21,27 @@ export default defineComponent({
         >
           button
         </Button>
+        <span
+          {...{
+            on: {
+              click: () => {
+                console.log('hahah span');
+              },
+            },
+          }}
+        >
+          hahah
+        </span>
+        {/* 没有效果? why? */}
+        <Input
+          {...{
+            on: {
+              keyup: () => {
+                console.log('aaaaaaa');
+              },
+            },
+          }}
+        />
       </div>
     );
   },

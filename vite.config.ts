@@ -6,7 +6,6 @@ import AutoImport from 'unplugin-auto-import/vite';
 export default defineConfig({
   plugins: [
     vueJsx({ optimize: true, transformOn: true }),
-    ,
     vue(),
     AutoImport({
       imports: ['vue'],

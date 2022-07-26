@@ -1,7 +1,8 @@
 import { defineComponent } from 'vue';
 // import VueEasyLightBox from './components/VueEasyLightBox';
 // import { Button, Input } from 'ant-design-vue';
-import UnpluginTest from './components/UnpluginTest.vue';
+// import UnpluginTest from './components/UnpluginTest.vue';
+import HelloWord from './components/HelloWorld.vue';
 
 export default defineComponent({
   setup() {
@@ -15,7 +16,8 @@ export default defineComponent({
           //   //
           // }}
         /> */}
-        <UnpluginTest />
+        {/* <UnpluginTest /> */}
+        <HelloWord msg='hello' />
         {/* <Button
           onAbc={() => {
             // ant组件的没有问题

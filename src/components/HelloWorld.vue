@@ -1,11 +1,12 @@
 <script setup lang="ts">
   import { ref } from 'vue';
+  import { ElButton } from 'element-plus';
 
   defineProps<{
     msg: string;
   }>();
 
-  const aa = ref();
+  const loading = ref(true);
 </script>
 
 <template>
@@ -16,6 +17,7 @@
       <a target="_blank" href="https://vitejs.dev/">Vite</a> +
       <a target="_blank" href="https://vuejs.org/">Vue 3</a>.
     </h3>
+    <ElButton v-loading="loading">haha</ElButton>
   </div>
 </template>
 

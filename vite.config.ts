@@ -24,12 +24,15 @@ export default defineConfig({
   build: {
     rollupOptions: {
       // 'element-plus/dist/index.css'
-      external: ['vue', 'element-plus/dist/index.css'],
+      external: ['vue', 'element-plus/dist/index.css', 'element-plus'],
       output: {
         format: 'umd',
+        inlineDynamicImports: true,
         globals: {
           vue: 'Vue',
-          'element-plus/dist/index.css': '""',
+          // 'element-plus/dist/index.css': '" "',
+          'element-plus': 'lskd',
+          'element-plus/dist/index.css': 'sdj',
         },
       },
     },

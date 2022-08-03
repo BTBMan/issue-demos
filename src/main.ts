@@ -1,17 +1,39 @@
-import { createApp } from 'vue';
+import { createApp, type App as VueApp } from 'vue';
 // import 'element-plus/dist/index.css';
-import App from './App';
+import { qiankunWindow, renderWithQiankun, type QiankunProps } from 'vite-plugin-qiankun/es/helper';
+// import App from './App';
+import App from './App.vue';
 import { MyDirective } from './my-directive';
 
 // import('element-plus');
 
-// @ts-ignore
-if (window.a) {
-  import('element-plus/dist/index.css');
+let root: VueApp;
+function render(props?: QiankunProps) {
+  root = createApp(App);
+
+  root.directive('my-directive', MyDirective);
+
+  root.mount('#app');
 }
 
-const app = createApp(App);
+renderWithQiankun({
+  mount(props) {
+    render(props);
+  },
+  bootstrap() {
+    //
+  },
+  unmount() {
+    root.unmount();
+  },
+  update() {
+    //
+  },
+});
 
-app.directive('my-directive', MyDirective);
+if (import.meta.env.DEV) {
+  import('element-plus/dist/index.css');
+  import('element-plus');
 
-app.mount('#app');
+  render();
+}
